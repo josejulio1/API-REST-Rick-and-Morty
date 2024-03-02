@@ -7,7 +7,7 @@ export const CHARACTER = {
     IMAGE: 'image'
 }
 
-export const LOCATIONS = {
+export const LOCATION = {
     ID: 'id',
     NAME: 'name',
     TYPE: 'type',

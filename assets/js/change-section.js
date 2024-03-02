@@ -16,8 +16,10 @@ document.querySelectorAll('.button-item').forEach(buttonItem => {
 const $aside = document.getElementById('aside');
 const $openFilter = document.getElementById('open-filter');
 const $asideSection = document.getElementById('aside-section');
+const $setDefault = document.getElementById('set-default');
 
 $openFilter.addEventListener('click', () => {
+    // Si el panel de filtros está mostrado, ocultar
     if ($aside.classList.contains('show-filter')) {
         $aside.classList.remove('show-filter');
         $aside.classList.add('close-filter');
@@ -26,6 +28,7 @@ $openFilter.addEventListener('click', () => {
             $asideSection.classList.add('hide-aside');
         })
     } else {
+        // Si está oculto, mostrar
         $aside.classList.remove('close-filter');
         $aside.classList.add('show-filter');
         $aside.addEventListener('animationend', () => {

@@ -243,14 +243,6 @@ aside img {
     gap: 1rem;
 }
 
-#aside-section > img {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 30px;
-    height: 30px;
-}
-
 #aside-section label {
     color: var(--terciario);
     font-size: 1.5rem;
@@ -261,6 +253,13 @@ aside img {
     font-size: 1.3rem;
     border-radius: .6rem;
     border: none;
+}
+
+.set-default {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 15%;
 }
 
 .filter__item {
@@ -289,6 +288,19 @@ aside img {
 
 .filter__item__range label {
     font-size: 1.2rem !important;
+}
+
+.filter__item__select {
+    display: flex;
+}
+
+.filter__item__select select {
+    font-size: 1.2rem;
+    border-radius: .6rem 0 0 .6rem;
+}
+
+.filter__item__select input {
+    border-radius: 0 .6rem .6rem 0 !important;
 }
 
 @keyframes search-error {

@@ -8,6 +8,7 @@
     <script src="assets/js/change-section.js" defer></script>
     <script src="assets/js/get-api.js" defer type="module"></script>
     <script src="assets/js/sections/character.js" defer type="module"></script>
+    <script src="assets/js/sections/location.js" defer type="module"></script>
 </head>
 <body>
     <header>
@@ -32,13 +33,13 @@
         </div>
     </main>
     <aside id="aside">
-        <img id="open-filter" src="assets/img/arrow.svg" alt="Chat">
+        <img id="open-filter" src="assets/img/arrow.svg" alt="Abrir/Cerrar filtros" title="Abrir/Cerrar filtros">
         <section id="aside-section" class="hide-aside">
             <article id="characters-aside">
                 <div class="filter__item">
-                    <label for="filter-id-characters'">Buscar por ID</label>
+                    <label for="filter-id-characters">Buscar por ID</label>
                     <div class="filter__item__line">
-                        <input type="number" id="filter-id-characters" placeholder="1">
+                        <input type="number" min="1" id="filter-id-characters" placeholder="1">
                         <img id="search-id-characters" src="assets/img/search.svg" alt="Search">
                     </div>
                 </div>
@@ -47,27 +48,109 @@
                     <div class="filter__item__line">
                         <div class="filter__item__range">
                             <label for="filter-range-start-characters">De</label>
-                            <input type="number" id="filter-range-start-characters" placeholder="1">
+                            <input type="number" min="1" id="filter-range-start-characters" placeholder="1">
                         </div>
                         <div class="filter__item__range">
                             <label for="filter-range-end-characters">Hasta</label>
-                            <input type="number" id="filter-range-end-characters" placeholder="10">
+                            <input type="number" min="1" id="filter-range-end-characters" placeholder="10">
                         </div>
                         <img id="search-range-characters" src="assets/img/search.svg" alt="Search">
                     </div>
                 </div>
+                <div class="filter__item">
+                    <label>Filtrar por categoría</label>
+                    <div class="filter__item__line">
+                        <div class="filter__item__select">
+                            <select id="filter-category-character-select">
+                                <option value="NAME" selected>Nombre</option>
+                                <option value="STATUS">Estado</option>
+                                <option value="SPECIES">Especie</option>
+                                <option value="GENDER">Género</option>
+                            </select>
+                            <input type="text" id="filter-category-characters">
+                        </div>
+                        <img id="search-category-characters" src="assets/img/search.svg" alt="Search">
+                    </div>
+                </div>
+                <img class="set-default" id="set-default-characters" src="assets/img/default.svg" alt="Establecer por defecto" title="Establecer por defecto">
             </article>
             <article id="locations-aside" class="hide-aside">
-                <div class="filter-item">
-                    <label for="filter-id">Buscar por ID</label>
-                    <input type="number" id="filter-id-locations" placeholder="1">
+                <div class="filter__item">
+                    <label for="filter-id-locations">Buscar por ID</label>
+                    <div class="filter__item__line">
+                        <input type="number" min="1" id="filter-id-locations" placeholder="1">
+                        <img id="search-id-locations" src="assets/img/search.svg" alt="Search">
+                    </div>
                 </div>
+                <div class="filter__item">
+                    <label>Filtrar por rango (ID)</label>
+                    <div class="filter__item__line">
+                        <div class="filter__item__range">
+                            <label for="filter-range-start-characters">De</label>
+                            <input type="number" min="1" id="filter-range-start-locations" placeholder="1">
+                        </div>
+                        <div class="filter__item__range">
+                            <label for="filter-range-end-locations">Hasta</label>
+                            <input type="number" min="1" id="filter-range-end-locations" placeholder="10">
+                        </div>
+                        <img id="search-range-locations" src="assets/img/search.svg" alt="Search">
+                    </div>
+                </div>
+                <div class="filter__item">
+                    <label>Filtrar por categoría</label>
+                    <div class="filter__item__line">
+                        <div class="filter__item__select">
+                            <select id="filter-category-location-select">
+                                <option value="NAME" selected>Nombre</option>
+                                <option value="TYPE">Tipo</option>
+                                <option value="DIMENSION">Dimension</option>
+                                <option value="CREATED">Creado</option>
+                            </select>
+                            <input type="text" id="filter-category-locations">
+                        </div>
+                        <img id="search-category-locations" src="assets/img/search.svg" alt="Search">
+                    </div>
+                </div>
+                <img class="set-default" id="set-default-locations" src="assets/img/default.svg" alt="Establecer por defecto" title="Establecer por defecto">
             </article>
             <article id="episodes-aside" class="hide-aside">
-                <div class="filter-item">
-                    <label for="filter-id">Buscar por ID</label>
-                    <input type="number" id="filter-id-episodes" placeholder="1">
+                <div class="filter__item">
+                    <label for="filter-id-episodes">Buscar por ID</label>
+                    <div class="filter__item__line">
+                        <input type="number" min="1" id="filter-id-episodes" placeholder="1">
+                        <img id="search-id-episodes" src="assets/img/search.svg" alt="Search">
+                    </div>
                 </div>
+                <div class="filter__item">
+                    <label>Filtrar por rango (ID)</label>
+                    <div class="filter__item__line">
+                        <div class="filter__item__range">
+                            <label for="filter-range-start-episodes">De</label>
+                            <input type="number" min="1" id="filter-range-start-episodes" placeholder="1">
+                        </div>
+                        <div class="filter__item__range">
+                            <label for="filter-range-end-episodes">Hasta</label>
+                            <input type="number" min="1" id="filter-range-end-episodes" placeholder="10">
+                        </div>
+                        <img id="search-range-episodes" src="assets/img/search.svg" alt="Search">
+                    </div>
+                </div>
+                <div class="filter__item">
+                    <label>Filtrar por categoría</label>
+                    <div class="filter__item__line">
+                        <div class="filter__item__select">
+                            <select id="filter-category-episode-select">
+                                <option value="NAME" selected>Nombre</option>
+                                <option value="AIR_DATE">Fecha Exp.</option>
+                                <option value="EPISODE">Episodio</option>
+                                <option value="CREATED">Creado</option>
+                            </select>
+                            <input type="text" id="filter-category-episodes">
+                        </div>
+                        <img id="search-category-episodes" src="assets/img/search.svg" alt="Search">
+                    </div>
+                </div>
+                <img class="set-default" id="set-default-episodes" src="assets/img/default.svg" alt="Establecer por defecto" title="Establecer por defecto">
             </article>
         </section>
     </aside>
