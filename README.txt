@@ -1,0 +1,1 @@
+Importante ejecutar en un servidor web como Apache2 o usando la extensión Live Server de Visual Studio Code, ya que si se abre directamente, la API REST no funcionará por el CORS

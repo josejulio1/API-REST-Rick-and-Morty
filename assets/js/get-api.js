@@ -117,6 +117,7 @@ export async function getEpisode(id) {
  * Muestra una animación de cargando en la web
  */
 function showLoading() {
+    window.scrollTo(0, 0);
     $loadingTag.classList.remove('hide-aside');
     document.body.classList.add('no-scroll');
 }

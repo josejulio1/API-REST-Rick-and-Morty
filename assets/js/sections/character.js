@@ -46,7 +46,9 @@ $searchId.addEventListener('click', async () => {
 $searchRange.addEventListener('click', async () => {
     const { value: rangeStart } = $filterRangeStart;
     const { value: rangeEnd } = $filterRangeEnd;
-    if (!rangeStart || !rangeEnd || rangeStart < 1 || rangeEnd < 1 || rangeStart > rangeEnd) {
+    const rangeStartNumber = parseInt(rangeStart);
+    const rangeEndNumber = parseInt(rangeEnd);
+    if (!rangeStartNumber || !rangeEndNumber || rangeStartNumber < 1 || rangeEndNumber < 1 || rangeStartNumber > rangeEndNumber) {
         $searchRange.classList.add('search-error');
         $searchRange.addEventListener('animationend', () => {
             $searchRange.classList.remove('search-error');
@@ -54,7 +56,7 @@ $searchRange.addEventListener('click', async () => {
         return;
     }
     const items = [];
-    for (let i = rangeStart; i <= rangeEnd; i++) {
+    for (let i = rangeStartNumber; i <= rangeEndNumber; i++) {
         items.push(...await getCharacter(i));
     }
     appendCharactersToDom(items);
@@ -82,8 +84,9 @@ $searchCategory.addEventListener('click', async () => {
  */
 export function appendCharactersToDom(characters) {
     $characters.innerHTML = '';
+    const documentFragment = document.createDocumentFragment();
     for (const character of characters) {
-        $characters.appendChild(
+        documentFragment.appendChild(
             new CharacterItem(
                 character[CHARACTER.ID],
                 character[CHARACTER.NAME],
@@ -94,4 +97,5 @@ export function appendCharactersToDom(characters) {
             ).getItem()
         );
     }
+    $characters.appendChild(documentFragment);
 }
